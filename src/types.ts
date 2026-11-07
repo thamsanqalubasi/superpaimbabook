@@ -66,9 +66,36 @@ export type SystemControlItem = {
 
 export type AffiliateProvider = "booking_com" | "expedia" | "tripadvisor" | "airbnb" | "direct_partner";
 
+export type AffiliateConnection = {
+  id: string;
+  provider: AffiliateProvider;
+  name: string;
+  affiliateId: string; // e.g. AID (Affiliate ID) for Booking.com
+  apiKey?: string;
+  apiSecret?: string;
+  endpointUrl?: string;
+  status: "connected" | "disconnected" | "testing";
+  isEnabled: boolean; // Master toggle for this specific provider API
+  environment: "production" | "sandbox";
+  commissionRate: number; // e.g. 25% to 40% of Booking.com commission (net ~6-8%)
+  displayRules: {
+    showOnlyDiscounted: boolean;
+    cheapestFirst: boolean;
+    minimumStarRating: number;
+    maxResultsPerCity: number;
+    countriesAllowed: string[]; // e.g. ["South Africa", "Zambia", "Namibia", "All"]
+    showCuratedBanner: boolean;
+  };
+  lastSyncedAt?: string;
+  totalOutboundClicks: number;
+  totalBookingsGenerated: number;
+  totalCommissionsEarned: number;
+};
+
 export type AffiliateProperty = {
   id: string;
   provider: AffiliateProvider;
+  connectionId?: string;
   externalId: string;
   title: string;
   propertyName: string;
