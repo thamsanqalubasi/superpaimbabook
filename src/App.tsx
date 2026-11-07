@@ -8,6 +8,7 @@ import { ControlsPage } from "./pages/controls";
 import { AffiliatesPage } from "./pages/affiliates";
 import { InquiriesPage } from "./pages/inquiries";
 import { FinancesPage } from "./pages/finances";
+import { AnalyticsPage } from "./pages/analytics";
 import { AdminsPage } from "./pages/admins";
 import { AuditPage } from "./pages/audit";
 
@@ -21,6 +22,7 @@ export function App() {
             <Route path="/companies" element={<CompaniesPage />} />
             <Route path="/controls" element={<ControlsPage />} />
             <Route path="/affiliates" element={<AffiliatesPage />} />
+            <Route path="/analytics" element={<AnalyticsPage />} />
             <Route path="/inquiries" element={<InquiriesPage />} />
             <Route path="/finances" element={<FinancesPage />} />
             <Route path="/admins" element={<AdminsPage />} />

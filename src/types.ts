@@ -12,7 +12,8 @@ export type SuperPermissionKey =
   | "affiliates_manage_apis"
   | "affiliates_curate_deals"
   | "finances_commissions_view"
-  | "inquiries_cross_company";
+  | "inquiries_cross_company"
+  | "analytics_view";
 
 export type SuperAdminUser = {
   id: string;
@@ -142,4 +143,42 @@ export type SuperAuditLog = {
   details: string;
   ipAddress?: string;
   createdAt: string;
+};
+
+// Analytics Data Types
+export type AnalyticsTimeframe = "24h" | "2d" | "3d" | "7d" | "30d" | "6m" | "1y";
+
+export type VisitorLocationStat = {
+  country: string;
+  countryCode: string;
+  city: string;
+  visitsCount: number;
+  percentage: number;
+};
+
+export type AffiliateClickRank = {
+  propertyId: string;
+  propertyName: string;
+  provider: AffiliateProvider;
+  destination: string;
+  clicksCount: number;
+  conversionsCount: number;
+  conversionRate: number;
+  commissionsEarned: number;
+  rank: number;
+  rankChange: "up" | "down" | "same";
+};
+
+export type CompanyPerformanceStat = {
+  companyId: string;
+  companyName: string;
+  ownershipType: CompanyOwnershipType;
+  country: string;
+  city: string;
+  viewsAndClicks: number;
+  holdReservations: number;
+  confirmedBookings: number;
+  conversionRate: number;
+  grossRevenue: number;
+  platformCommissionEarned: number;
 };

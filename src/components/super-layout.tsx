@@ -17,6 +17,7 @@ import {
   ExternalLink,
   Lock,
   Layers,
+  BarChart3,
 } from "lucide-react";
 import { useSuperAuth } from "../context/auth-context";
 
@@ -60,6 +61,12 @@ export function SuperLayout({ children }: { children: React.ReactNode }) {
       to: "/affiliates",
       label: "Affiliates & Booking.com",
       icon: Compass,
+    },
+    {
+      to: "/analytics",
+      label: "Traffic & Clicks Analytics",
+      icon: BarChart3,
+      badge: "Live",
     },
     {
       to: "/inquiries",
